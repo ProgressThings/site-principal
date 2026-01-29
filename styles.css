@@ -1199,41 +1199,54 @@ section {
    ============================================ */
 
 @media screen and (max-width: 768px) {
-    /* On s'assure que la navbar reste en haut et visible */
+    /* 1. On fixe la barre de navigation en haut avec un fond noir */
     .navbar {
-        background: #0A0E17 !important; /* Fond noir solide */
-        z-index: 9999 !important; /* Priorité maximale */
+        background: #060911 !important; /* Noir total pour bloquer la transparence */
+        height: 70px;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        z-index: 10000 !important;
     }
 
-    /* Style du menu quand il est ouvert */
+    /* 2. Le menu mobile (déroulant) */
     .nav-menu {
         display: none; /* Caché par défaut */
         flex-direction: column !important;
-        position: fixed !important; /* Fixé par rapport à l'écran */
-        top: 60px; /* Juste sous la navbar */
+        position: fixed !important;
+        top: 70px; /* Commence juste après la navbar */
         left: 0;
         width: 100%;
-        height: auto;
-        background: #0A0E17 !important; /* Fond noir opaque pour ne plus voir le texte derrière */
-        padding: 20px 0 !important;
-        border-bottom: 2px solid var(--primary);
-        z-index: 9998 !important;
+        height: 100vh; /* Prend toute la hauteur pour bloquer la vue du fond */
+        background-color: #060911 !important; /* FOND NOIR OPAQUE */
+        padding-top: 20px !important;
+        z-index: 9999 !important;
+        overflow-y: auto;
     }
 
-    /* Affiche le menu quand on clique sur le bouton */
+    /* 3. Affiche le menu quand la classe .active est ajoutée par le JS */
     .nav-menu.active {
         display: flex !important;
     }
 
+    /* 4. Style des liens dans le menu pour qu'ils soient bien visibles */
     .nav-menu li {
         width: 100%;
         text-align: center;
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Taille du logo pour mobile */
+    .nav-link {
+        font-size: 1.2rem !important;
+        color: white !important;
+        display: block;
+    }
+
+    /* 5. On réduit le logo pour qu'il ne pousse pas le reste */
     .nav-logo img {
         height: 35px !important;
+        width: auto !important;
     }
 }

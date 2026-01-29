@@ -1199,54 +1199,81 @@ section {
    ============================================ */
 
 @media screen and (max-width: 768px) {
-    /* 1. On fixe la barre de navigation en haut avec un fond noir */
+    /* Barre de navigation plus fine et élégante */
     .navbar {
-        background: #060911 !important; /* Noir total pour bloquer la transparence */
-        height: 70px;
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        z-index: 10000 !important;
+        background: rgba(6, 9, 17, 0.95) !important;
+        backdrop-filter: blur(10px);
+        height: 65px;
+        padding: 0 20px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    /* 2. Le menu mobile (déroulant) */
+    /* Menu mobile style "Plein écran moderne" */
     .nav-menu {
-        display: none; /* Caché par défaut */
-        flex-direction: column !important;
         position: fixed !important;
-        top: 70px; /* Commence juste après la navbar */
+        top: 65px;
         left: 0;
         width: 100%;
-        height: 100vh; /* Prend toute la hauteur pour bloquer la vue du fond */
-        background-color: #060911 !important; /* FOND NOIR OPAQUE */
-        padding-top: 20px !important;
-        z-index: 9999 !important;
+        height: calc(100vh - 65px);
+        background: #060911 !important;
+        padding: 30px 20px !important;
+        display: none;
+        flex-direction: column !important;
+        gap: 15px; /* Espace entre les boutons */
         overflow-y: auto;
     }
 
-    /* 3. Affiche le menu quand la classe .active est ajoutée par le JS */
-    .nav-menu.active {
-        display: flex !important;
-    }
+    .nav-menu.active { display: flex !important; }
 
-    /* 4. Style des liens dans le menu pour qu'ils soient bien visibles */
+    /* Transformation des liens en "Cartes" cliquables */
     .nav-menu li {
         width: 100%;
-        text-align: center;
-        padding: 20px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        list-style: none;
     }
 
     .nav-link {
-        font-size: 1.2rem !important;
-        color: white !important;
-        display: block;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 16px 20px !important;
+        border-radius: 12px;
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem !important;
+        font-weight: 500;
+        color: var(--white) !important;
+        transition: all 0.3s ease;
     }
 
-    /* 5. On réduit le logo pour qu'il ne pousse pas le reste */
-    .nav-logo img {
-        height: 35px !important;
-        width: auto !important;
+    .nav-link:active {
+        background: var(--primary);
+        transform: scale(0.98);
+    }
+
+    /* Style spécifique pour le dropdown "Support IT" */
+    .nav-dropdown-menu {
+        display: none;
+        background: rgba(0, 102, 255, 0.05) !important;
+        margin-top: 10px;
+        border-radius: 12px;
+        padding: 10px !important;
+        border: 1px dashed rgba(0, 102, 255, 0.2);
+    }
+
+    .nav-dropdown.active .nav-dropdown-menu { display: grid !important; grid-template-columns: 1fr; gap: 8px; }
+
+    .nav-dropdown-menu a {
+        padding: 12px 15px !important;
+        font-size: 0.9rem !important;
+        color: var(--gray-400) !important;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 8px;
+    }
+
+    /* Bouton toggle (hamburger) plus stylé */
+    .nav-toggle span {
+        height: 2px;
+        background: var(--primary) !important;
+        border-radius: 2px;
     }
 }

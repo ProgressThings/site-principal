@@ -1,25 +1,171 @@
-<call-us-selector 
-    phonesystem-url="https://1745.3cx.cloud" 
-    party="LiveChat600395"
-    id="wp-live-chat-by-3CX"
-    style="position:fixed; z-index: 999999; right: 20px; bottom: 20px;"
-    animation-style="reflection" 
-    minimized-style="bubbleleft" 
-    lang="fr"
-    authentication="both"
-    greeting-visibility="show"
-    chat-delay="2000"
-    show-operator-actual-name="true"
-    allow-call="false">
-</call-us-selector>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Things | IT, Helpdesk, M365, ESET - Burkina Faso</title>
+    <meta name="description" content="Progress Things - Votre partenaire technologique de confiance au Burkina Faso. Support IT, cybersécurité ESET, Microsoft 365, Fortinet.">
+    
+    <link rel="icon" type="image/png" href="white_logo_transparent_background.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
 
-<script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">
+            <img src="white_logo_transparent_background.png" alt="Progress Things">
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link active">Accueil</a></li>
+            <li><a href="services.html" class="nav-link">Services</a></li>
+            <li class="nav-dropdown">
+                <a href="#" class="nav-link nav-dropdown-toggle">
+                    Support IT
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12"><polyline points="6 9 12 15 18 9"/></svg>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <a href="tarifs.html#abonnement">Abonnement</a>
+                    <a href="tarifs.html#demande">À la demande</a>
+                    <a href="m365.html">M365 International</a>
+                </div>
+            </li>
+            <li><a href="produits.html" class="nav-link">Produits</a></li>
+            <li><a href="partenaires.html" class="nav-link">Partenaires</a></li>
+            <li><a href="apropos.html" class="nav-link">À propos</a></li>
+        </ul>
+        <a href="contact.html" class="nav-cta desktop">Nous contacter</a>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-<style>
-    /* On "force" le design du cadre pour qu'il soit plus pro */
-    #wp-live-chat-by-3CX-container {
-        border: 1px solid rgba(255,255,255,0.1) !important;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
-        border-radius: 16px !important;
-    }
-</style>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Partenaire Microsoft, ESET & Fortinet en Afrique
+            </div>
+            <h1>Solutions <span class="gradient-text">numériques</span> innovantes pour votre croissance</h1>
+            <p class="hero-subtitle">Votre partenaire technologique de confiance au Burkina Faso et partout dans le monde. Support IT, cybersécurité, Microsoft 365 et bien plus.</p>
+            <div class="hero-cta">
+                <a href="services.html" class="btn btn-primary btn-lg">
+                    Découvrir nos services
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="contact.html" class="btn btn-secondary btn-lg">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-preview" style="padding: 3rem 5%; background: rgba(0,0,0,0.3); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div style="text-align: center; color: var(--gray-500); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem;">Nos partenaires de confiance</div>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap; max-width: 800px; margin: 0 auto;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/512px-Microsoft_logo_%282012%29.svg.png" alt="Microsoft" style="height: 35px;">
+            <img src="eset.png" alt="ESET" style="height: 30px;">
+            <img src="fortinet.png" alt="Fortinet" style="height: 28px;">
+        </div>
+    </section>
+
+    <section style="padding: 6rem 5%;">
+        <div class="section-header">
+            <span class="section-tag">Notre raison d'être</span>
+            <h2>Vision & Mission</h2>
+            <p>Let's do it together - Ensemble, construisons l'avenir numérique de l'Afrique</p>
+        </div>
+        <div class="services-grid" style="max-width: 1100px; margin: 0 auto;">
+            <div class="card animate-on-scroll">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" width="26" stroke="currentColor" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3>Notre Vision</h3>
+                <p>Être le partenaire privilégié des PME et grandes entreprises en offrant des solutions numériques innovantes qui favorisent leur succès.</p>
+            </div>
+            <div class="card animate-on-scroll">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" width="26" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h3>Notre Mission</h3>
+                <p>Offrir des services informatiques de haute qualité à moindre coût, avec une ingénierie sur mesure adaptée à chaque client.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 6rem 5%; background: rgba(0,102,255,0.02);">
+        <div class="section-header">
+            <span class="section-tag">Ce que nous offrons</span>
+            <h2>Nos Services</h2>
+        </div>
+        <div class="services-grid" style="max-width: 1300px; margin: 0 auto;">
+            <div class="service-card animate-on-scroll">
+                <span class="service-number">01</span>
+                <h3>Support & Maintenance</h3>
+                <p>Assistance rapide 24h/24 et 7j/7 pour tous vos besoins informatiques.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <span class="service-number">02</span>
+                <h3>Sécurité Informatique</h3>
+                <p>Solutions ESET et Fortinet pour protéger vos systèmes contre les menaces.</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <span class="service-number">03</span>
+                <h3>Microsoft 365</h3>
+                <p>Revendeur officiel - solutions de productivité pour toute l'Afrique.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 5rem 5%;">
+        <div class="stats-grid" style="max-width: 1000px; margin: 0 auto;">
+            <div class="stat-card">
+                <div class="stat-number">2024</div>
+                <div class="stat-label">Création</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Authentique</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="white_logo_transparent_background.png" alt="Progress Things" style="height: 50px;">
+                <p>Votre partenaire technologique au Burkina Faso.</p>
+            </div>
+            <div class="footer-bottom" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                <p>© 2024 Progress Things. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

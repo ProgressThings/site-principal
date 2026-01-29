@@ -225,25 +225,25 @@
     phonesystem-url="https://1745.3cx.cloud" 
     party="LiveChat600395"
     id="wp-live-chat-by-3CX"
-    style="position:fixed; z-index: 999999; right: 30px; bottom: 30px;"
-    animation-style="reflection"
-    minimized-style="bubbleright"
+    style="position:fixed; z-index: 999999; right: 20px; bottom: 20px;"
+    animation-style="reflection" 
+    minimized-style="bubbleleft" 
     lang="fr"
-    greeting-visibility="show"
-    chat-delay="3000"
-    allow-call="false" 
     authentication="both"
-    show-operator-actual-name="true">
+    greeting-visibility="show"
+    chat-delay="2000"
+    show-operator-actual-name="true"
+    allow-call="false">
 </call-us-selector>
 
 <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
 
 <style>
-    /* Ajustement de la fenêtre pour éviter les débordements */
+    /* On "force" le design du cadre pour qu'il soit plus pro */
     #wp-live-chat-by-3CX-container {
-        box-shadow: 0 10px 50px rgba(0,0,0,0.3) !important;
-        border-radius: 12px !important;
-        overflow: hidden !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
+        border-radius: 16px !important;
     }
 </style>
     

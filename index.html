@@ -303,26 +303,20 @@
     }
 </style>
     <script>
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
 
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-                // Ouvre/Ferme le menu
-                navMenu.classList.toggle('active');
-                // Transforme le bouton en croix (X)
-                navToggle.classList.toggle('active');
-            });
-
-            // Ferme le menu si on clique sur un lien (utile pour les ancres #)
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    navToggle.classList.remove('active');
-                });
-            });
-        }
-    </script>
-
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Optionnel : empêche le défilement de la page quand le menu est ouvert
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+</script>
 </body>
 </html>

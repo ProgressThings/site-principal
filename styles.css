@@ -1199,81 +1199,37 @@ section {
    ============================================ */
 
 @media screen and (max-width: 768px) {
-    /* Barre de navigation plus fine et élégante */
+    /* FIX LOGO : On limite la hauteur pour qu'il soit discret */
+    .nav-logo img {
+        height: 35px !important; /* Force une taille élégante */
+        width: auto !important;
+        max-width: 150px !important;
+    }
+
     .navbar {
-        background: rgba(6, 9, 17, 0.95) !important;
-        backdrop-filter: blur(10px);
-        height: 65px;
-        padding: 0 20px !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        height: 60px !important;
+        padding: 0 15px !important;
     }
 
-    /* Menu mobile style "Plein écran moderne" */
-    .nav-menu {
-        position: fixed !important;
-        top: 65px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 65px);
-        background: #060911 !important;
-        padding: 30px 20px !important;
-        display: none;
-        flex-direction: column !important;
-        gap: 15px; /* Espace entre les boutons */
-        overflow-y: auto;
-    }
-
-    .nav-menu.active { display: flex !important; }
-
-    /* Transformation des liens en "Cartes" cliquables */
-    .nav-menu li {
-        width: 100%;
-        list-style: none;
-    }
-
-    .nav-link {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 16px 20px !important;
-        border-radius: 12px;
-        display: flex !important;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 1rem !important;
-        font-weight: 500;
-        color: var(--white) !important;
-        transition: all 0.3s ease;
-    }
-
-    .nav-link:active {
-        background: var(--primary);
-        transform: scale(0.98);
-    }
-
-    /* Style spécifique pour le dropdown "Support IT" */
+    /* FIX SOUS-MENU : On prépare l'affichage des sous-points */
     .nav-dropdown-menu {
-        display: none;
-        background: rgba(0, 102, 255, 0.05) !important;
-        margin-top: 10px;
-        border-radius: 12px;
-        padding: 10px !important;
-        border: 1px dashed rgba(0, 102, 255, 0.2);
+        display: none; /* Caché par défaut */
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.05) !important;
+        margin: 10px 15px;
+        border-radius: 8px;
+        padding: 5px 0 !important;
     }
 
-    .nav-dropdown.active .nav-dropdown-menu { display: grid !important; grid-template-columns: 1fr; gap: 8px; }
+    /* Cette classe sera ajoutée par le JavaScript au clic */
+    .nav-dropdown.active .nav-dropdown-menu {
+        display: flex !important; 
+    }
 
     .nav-dropdown-menu a {
-        padding: 12px 15px !important;
+        padding: 12px 20px !important;
         font-size: 0.9rem !important;
-        color: var(--gray-400) !important;
-        background: rgba(255, 255, 255, 0.02);
-        border-radius: 8px;
-    }
-
-    /* Bouton toggle (hamburger) plus stylé */
-    .nav-toggle span {
-        height: 2px;
-        background: var(--primary) !important;
-        border-radius: 2px;
+        color: #ccc !important;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 }

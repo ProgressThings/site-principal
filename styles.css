@@ -1199,35 +1199,28 @@ section {
    ============================================ */
 
 @media screen and (max-width: 768px) {
-    /* 1. Réduire la taille du logo pour qu'il ne soit plus énorme */
-    .nav-logo img {
-        height: 40px !important; /* Ajustez cette valeur pour la taille désirée */
-        width: auto !important;
-    }
-
-    /* 2. Aligner le logo et le bouton menu sur la même ligne */
+    /* On s'assure que la navbar reste en haut et visible */
     .navbar {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 10px 20px !important;
+        background: #0A0E17 !important; /* Fond noir solide */
+        z-index: 9999 !important; /* Priorité maximale */
     }
 
-    /* 3. Rendre le menu vertical et propre (il n'apparaîtra que si on clique) */
+    /* Style du menu quand il est ouvert */
     .nav-menu {
-        display: none; /* Cache le menu "pêle-mêle" par défaut */
+        display: none; /* Caché par défaut */
         flex-direction: column !important;
-        position: absolute;
-        top: 60px;
+        position: fixed !important; /* Fixé par rapport à l'écran */
+        top: 60px; /* Juste sous la navbar */
         left: 0;
         width: 100%;
-        background: rgba(10, 14, 23, 0.98);
-        padding: 20px 0;
-        border-bottom: 1px solid var(--border-color);
+        height: auto;
+        background: #0A0E17 !important; /* Fond noir opaque pour ne plus voir le texte derrière */
+        padding: 20px 0 !important;
+        border-bottom: 2px solid var(--primary);
+        z-index: 9998 !important;
     }
 
-    /* 4. Quand le menu est activé (via le clic) */
+    /* Affiche le menu quand on clique sur le bouton */
     .nav-menu.active {
         display: flex !important;
     }
@@ -1236,10 +1229,11 @@ section {
         width: 100%;
         text-align: center;
         padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
-    /* 5. Cacher le bouton "Nous contacter" du menu bureau pour éviter les doublons */
-    .nav-cta.desktop {
-        display: none !important;
+    /* Taille du logo pour mobile */
+    .nav-logo img {
+        height: 35px !important;
     }
 }

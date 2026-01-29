@@ -1240,3 +1240,18 @@ section {
         padding: 5px 0 !important;
     }
 }
+@media screen and (max-width: 768px) {
+    /* Cache le sous-menu par défaut */
+    .nav-dropdown-menu {
+        display: none !important;
+    }
+
+    /* L'affiche SEULEMENT quand on a cliqué (classe active ajoutée par le script) */
+    .nav-dropdown.active .nav-dropdown-menu {
+        display: flex !important;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.05) !important;
+        margin-top: 10px;
+        padding: 10px !important;
+    }
+}

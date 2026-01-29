@@ -303,36 +303,37 @@
     }
 </style>
 
+
     <script>
-    // On attend que la page soit bien chargée
-    window.addEventListener('DOMContentLoaded', () => {
+    // On attend que le document soit prêt
+    document.addEventListener('click', function (e) {
+        
+        // 1. GESTION DU BOUTON MENU (HAMBURGER)
         const toggleBtn = document.getElementById('navToggle');
         const menu = document.getElementById('navMenu');
-        const dropdown = document.querySelector('.nav-dropdown');
-        const dropdownBtn = document.querySelector('.nav-dropdown-toggle');
-
-        // GESTION DU MENU PRINCIPAL
-        if (toggleBtn && menu) {
-            toggleBtn.onclick = function(e) {
-                e.preventDefault();
-                menu.classList.toggle('active');
-                toggleBtn.classList.toggle('active');
-            };
+        
+        if (toggleBtn && toggleBtn.contains(e.target)) {
+            menu.classList.toggle('active');
+            toggleBtn.classList.toggle('active');
+            return; // On arrête ici pour ce clic
         }
 
-        // GESTION DU SOUS-MENU SUPPORT IT (DÉROULÉ)
-        if (dropdownBtn && dropdown) {
-            dropdownBtn.onclick = function(e) {
-                // On n'active le clic que sur mobile
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    dropdown.classList.toggle('active');
-                }
-            };
+        // 2. GESTION DU SOUS-MENU SUPPORT IT
+        const dropBtn = document.querySelector('.nav-dropdown-toggle');
+        const dropParent = document.querySelector('.nav-dropdown');
+        
+        if (dropBtn && dropBtn.contains(e.target)) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault(); // Empêche de changer de page
+                dropParent.classList.toggle('active');
+            }
         }
     });
 </script>
+
+
+
+    
     
 </body>
 </html>

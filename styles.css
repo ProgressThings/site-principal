@@ -1198,37 +1198,44 @@ section {
    DESIGN MOBILE RÉPARÉ (LOGO ET MENU)
    ============================================ */
 
-/* CORRECTIF FINAL MOBILE - PROGRESS THINGS */
 @media screen and (max-width: 768px) {
-    /* 1. ON FORCE LA TAILLE DU LOGO */
-    nav.navbar a.nav-logo img {
-        height: 30px !important; /* On le réduit encore un peu pour l'élégance */
-        width: auto !important;
-        display: block !important;
-    }
-
-    /* 2. ON FORCE LE FOND NOIR DU MENU */
-    ul.nav-menu {
-        background-color: #060911 !important;
+    /* 1. On remonte le menu vers le haut pour éviter le grand vide */
+    .nav-menu {
+        position: fixed !important;
+        top: 60px !important; /* Réduit l'espace sous la barre du haut */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: #060911 !important;
+        padding: 10px 20px !important; /* Réduit le padding intérieur */
         display: none;
         flex-direction: column !important;
-        position: fixed !important;
-        top: 60px !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100vh !important;
         z-index: 9999 !important;
     }
 
-    ul.nav-menu.active {
-        display: flex !important;
+    /* 2. Style du sous-menu Support IT (Enroulable) */
+    .nav-dropdown-menu {
+        max-height: 0; /* Fermé par défaut */
+        overflow: hidden; /* Cache le contenu */
+        display: flex !important; /* Prépare la structure */
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.03) !important;
+        margin: 0 10px;
+        transition: max-height 0.4s ease-out; /* Effet d'enroulement fluide */
+        border-radius: 8px;
     }
 
-    /* 3. AFFICHAGE DU SOUS-MENU SUPPORT IT */
-    li.nav-dropdown.active .nav-dropdown-menu {
-        display: flex !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        margin: 10px !important;
-        border-radius: 8px !important;
+    /* 3. Quand on clique sur Support IT (Déroulement) */
+    .nav-dropdown.active .nav-dropdown-menu {
+        max-height: 300px; /* S'ouvre jusqu'à cette hauteur */
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px 0 !important;
+    }
+
+    .nav-dropdown-menu a {
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 }

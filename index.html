@@ -302,18 +302,25 @@
         }
     }
 </style>
-    <script>
+   <script>
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
+    const dropdown = document.querySelector('.nav-dropdown');
 
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            // Optionnel : empêche le défilement de la page quand le menu est ouvert
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+        // Empêche le scroll derrière le menu
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // Gestion propre du clic sur Support IT
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
             }
         });
     }

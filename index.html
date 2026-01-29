@@ -302,28 +302,31 @@
         }
     }
 </style>
- <script>
-    // On attend que la page soit prête
-    window.addEventListener('load', function() {
-        const btn = document.getElementById('navToggle');
+<script>
+    // On attend que la page soit bien chargée
+    window.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('navToggle');
         const menu = document.getElementById('navMenu');
-        const drop = document.querySelector('.nav-dropdown');
-        const dropBtn = document.querySelector('.nav-dropdown-toggle');
+        const dropdown = document.querySelector('.nav-dropdown');
+        const dropdownBtn = document.querySelector('.nav-dropdown-toggle');
 
-        // Clic sur les 3 barres (Menu principal)
-        if (btn && menu) {
-            btn.onclick = function() {
+        // GESTION DU MENU PRINCIPAL
+        if (toggleBtn && menu) {
+            toggleBtn.onclick = function(e) {
+                e.preventDefault();
                 menu.classList.toggle('active');
-                btn.classList.toggle('active');
+                toggleBtn.classList.toggle('active');
             };
         }
 
-        // Clic sur Support IT (Sous-menu)
-        if (dropBtn && drop) {
-            dropBtn.onclick = function(e) {
+        // GESTION DU SOUS-MENU SUPPORT IT (DÉROULÉ)
+        if (dropdownBtn && dropdown) {
+            dropdownBtn.onclick = function(e) {
+                // On n'active le clic que sur mobile
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
-                    drop.classList.toggle('active');
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
                 }
             };
         }

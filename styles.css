@@ -1144,54 +1144,53 @@ section {
     background-clip: text;
 }
 
-/* --- RÉPARATION MOBILE GLOBALE (Toutes les pages) --- */
+/* --- CORRECTIF MOBILE SÉCURISÉ --- */
 
-/* 1. Empêcher le site de bouger de gauche à droite sur mobile */
+/* Empêche le débordement horizontal sur toutes les pages */
 html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    position: relative;
+    overflow-x: hidden;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
 
-/* 2. Forcer TOUTES les grilles (grids) à devenir une seule colonne sur mobile */
+/* Adaptations pour écrans de moins de 768px (Portables) */
 @media screen and (max-width: 768px) {
-    /* Cible les grilles de services, partenaires, footer, etc. */
+    
+    /* On force les sections à ne pas être trop larges */
+    section {
+        padding: 40px 15px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* On empile les colonnes des services, partenaires et footer */
     .services-grid, 
     .footer-grid, 
-    .stats-grid, 
-    .grid,
-    [style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
+    .stats-grid,
+    .partners-preview > div {
         display: flex !important;
         flex-direction: column !important;
-        gap: 20px !important;
+        align-items: center !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
     }
 
-    /* Ajuster les marges des sections pour qu'elles ne collent pas aux bords */
-    section {
-        padding: 40px 20px !important;
-    }
-
-    /* Redimensionner les titres trop gros qui font déborder la page */
+    /* On réduit la taille des gros titres pour qu'ils tiennent sur une ligne */
     h1 {
         font-size: 1.8rem !important;
-        line-height: 1.2 !important;
-    }
-    
-    h2 {
-        font-size: 1.5rem !important;
+        text-align: center;
     }
 
-    /* Ajuster les images pour qu'elles ne dépassent jamais */
+    /* On s'assure que les images ne dépassent pas */
     img {
-        max-width: 100% !important;
-        height: auto !important;
+        max-width: 100%;
+        height: auto;
     }
 
-    /* Navigation mobile : s'assurer qu'elle ne casse pas le design */
-    .navbar {
-        padding: 10px 20px !important;
+    /* Cache les badges trop larges sur mobile si nécessaire */
+    .hero-badge {
+        font-size: 0.8rem !important;
+        padding: 5px 10px !important;
     }
 }

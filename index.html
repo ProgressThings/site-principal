@@ -221,58 +221,20 @@
     </footer>
 
     <!-- 3CX Live Chat -->
-    <call-us 
-        phonesystem-url="https://1745.3cx.cloud" 
-        style="position:fixed;z-index: 999999;right: 25px; bottom: 25px;" 
-        id="wp-live-chat-by-3CX" 
-        minimized="true" 
-        animation-style="reflection" 
-        party="LiveChat302601" 
-        minimized-style="bubbleright" 
-        allow-call="true" 
-        allow-video="false" 
-        allow-soundnotifications="true" 
-        enable-mute="true" 
-        enable-onmobile="true" 
-        offline-enabled="true" 
-        enable="true" 
-        ignore-queueownership="false" 
-        authentication="both" 
-        show-operator-actual-name="true" 
-        aknowledge-received="true" 
-        lang="fr" 
-        button-icon-type="default" 
-        greeting-visibility="show" 
-        greeting-offline-visibility="show" 
-        chat-delay="2000" 
-        enable-direct-call="false" 
-        enable-ga="false" 
-    ></call-us>
 
-    <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
+    <call-us-selector 
+    phonesystem-url="https://1745.3cx.cloud" 
+    party="LiveChat600395"
+    style="position:fixed; z-index: 999999; right: 25px; bottom: 25px;"
+    id="wp-live-chat-by-3CX"
+    animation-style="reflection"
+    minimized-style="bubbleright"
+    lang="fr"
+    greeting-visibility="show"
+    chat-delay="2000">
+</call-us-selector>
 
-    <script>
-        // Menu mobile
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        // Effet Navbar au scroll
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Animations au scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-    </script>
+<script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
 
 </body>
 </html>

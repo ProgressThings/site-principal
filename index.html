@@ -306,20 +306,20 @@
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     const dropdown = document.querySelector('.nav-dropdown');
+    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
 
+    // 1. Ouvrir le menu principal
     navToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
-        // Empêche le scroll derrière le menu
-        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
     });
 
-    // Gestion propre du clic sur Support IT
-    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    // 2. Ouvrir le sous-menu Support IT
     if (dropdownToggle) {
         dropdownToggle.addEventListener('click', (e) => {
+            // Uniquement sur mobile
             if (window.innerWidth <= 768) {
-                e.preventDefault();
+                e.preventDefault(); // Empêche de quitter la page
                 dropdown.classList.toggle('active');
             }
         });

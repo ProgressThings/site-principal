@@ -221,32 +221,52 @@
     </footer>
 
     <!-- 3CX Live Chat -->
-   <call-us 
-    phonesystem-url="https://1745.3cx.cloud" 
-    style="position:fixed;font-size:16px;line-height:17px;z-index: 99999;right: 25px; bottom: 25px;" 
-    id="wp-live-chat-by-3CX" 
-    minimized="true" 
-    animation-style="reflection" 
-    party="LiveChat302601" 
-    minimized-style="bubbleright" 
-    allow-call="true" 
-    allow-video="false" 
-    allow-soundnotifications="true" 
-    enable-mute="true" 
-    enable-onmobile="true" 
-    offline-enabled="true" 
-    enable="true" 
-    ignore-queueownership="false" 
-    authentication="both" 
-    show-operator-actual-name="true" 
-    aknowledge-received="true" 
-    lang="fr" 
-    button-icon-type="default" 
-    greeting-visibility="show" 
-    greeting-offline-visibility="show" 
-    chat-delay="2000" 
-    enable-direct-call="false" 
-    enable-ga="false" 
-></call-us>
-<script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
+    <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // 3CX initialization
+        window.addEventListener('load', function() {
+            if (typeof CallUsWidget !== 'undefined') {
+                CallUsWidget.init({ id: 'LiveChat5906', company: 'Progress Things', server: '1745.3cx.cloud' });
+            }
+        });
+    </script>
+</body>
 </html>

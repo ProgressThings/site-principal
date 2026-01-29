@@ -1193,3 +1193,53 @@ section {
         display: none; 
     }
 }
+
+/* ============================================
+   DESIGN MOBILE RÉPARÉ (LOGO ET MENU)
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+    /* 1. Réduire la taille du logo pour qu'il ne soit plus énorme */
+    .nav-logo img {
+        height: 40px !important; /* Ajustez cette valeur pour la taille désirée */
+        width: auto !important;
+    }
+
+    /* 2. Aligner le logo et le bouton menu sur la même ligne */
+    .navbar {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 20px !important;
+    }
+
+    /* 3. Rendre le menu vertical et propre (il n'apparaîtra que si on clique) */
+    .nav-menu {
+        display: none; /* Cache le menu "pêle-mêle" par défaut */
+        flex-direction: column !important;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 14, 23, 0.98);
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    /* 4. Quand le menu est activé (via le clic) */
+    .nav-menu.active {
+        display: flex !important;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    /* 5. Cacher le bouton "Nous contacter" du menu bureau pour éviter les doublons */
+    .nav-cta.desktop {
+        display: none !important;
+    }
+}

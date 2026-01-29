@@ -1143,3 +1143,53 @@ section {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* ============================================================
+   PATCH DE RÉPARATION MOBILE (Anti-débordement & Alignement)
+   ============================================================ */
+
+@media screen and (max-width: 768px) {
+    /* 1. Empêche le site de bouger de gauche à droite */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100vw;
+        position: relative;
+    }
+
+    /* 2. Force TOUTES les grilles à passer en une seule colonne */
+    /* Cela répare les services, les stats et le formulaire de contact */
+    .services-grid, 
+    .stats-grid, 
+    .footer-grid, 
+    .partners-preview div,
+    [style*="display: grid"], 
+    [style*="grid-template-columns"] {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        gap: 20px !important;
+    }
+
+    /* 3. Ajuste la taille des textes pour qu'ils ne soient pas trop gros */
+    h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 4. Répartit l'espace sur les côtés pour éviter que le texte touche les bords */
+    section {
+        padding: 40px 20px !important;
+    }
+
+    /* 5. Empêche les images de dépasser de l'écran */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 6. Cache le menu texte qui crée souvent des bugs d'affichage sur mobile */
+    .nav-menu {
+        display: none; 
+    }
+}

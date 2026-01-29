@@ -39,7 +39,7 @@
             <li><a href="apropos.html" class="nav-link">À propos</a></li>
         </ul>
         <a href="contact.html" class="nav-cta desktop">Nous contacter</a>
-        <div class="nav-toggle" id="navToggle">
+        <div class="nav-toggle" id="navToggle" onclick="toggleMonMenu()">
             <span></span>
             <span></span>
             <span></span>
@@ -331,7 +331,28 @@
         }
     };
 </script>
+    <script>
+function toggleMonMenu() {
+    var menu = document.getElementById('navMenu');
+    var btn = document.getElementById('navToggle');
     
+    if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+    } else {
+        menu.classList.add('active');
+        btn.classList.add('active');
+    }
+}
+
+// Pour le sous-menu Support IT
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('nav-dropdown-toggle')) {
+        e.preventDefault();
+        e.target.parentElement.classList.toggle('active');
+    }
+});
+</script>
     
 </body>
 </html>

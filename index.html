@@ -304,35 +304,33 @@
 </style>
 
 
-    <script>
-    // On attend que le document soit prêt
-    document.addEventListener('click', function (e) {
-        
-        // 1. GESTION DU BOUTON MENU (HAMBURGER)
-        const toggleBtn = document.getElementById('navToggle');
-        const menu = document.getElementById('navMenu');
-        
-        if (toggleBtn && toggleBtn.contains(e.target)) {
-            menu.classList.toggle('active');
-            toggleBtn.classList.toggle('active');
-            return; // On arrête ici pour ce clic
+<script>
+    // On attend que la page soit chargée
+    window.onload = function() {
+        var btn = document.getElementById('navToggle');
+        var menu = document.getElementById('navMenu');
+        var dropParent = document.querySelector('.nav-dropdown');
+        var dropLink = document.querySelector('.nav-dropdown-toggle');
+
+        // Clic sur le Menu Hamburger
+        if (btn && menu) {
+            btn.onclick = function() {
+                menu.classList.toggle('active');
+                btn.classList.toggle('active');
+            };
         }
 
-        // 2. GESTION DU SOUS-MENU SUPPORT IT
-        const dropBtn = document.querySelector('.nav-dropdown-toggle');
-        const dropParent = document.querySelector('.nav-dropdown');
-        
-        if (dropBtn && dropBtn.contains(e.target)) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault(); // Empêche de changer de page
-                dropParent.classList.toggle('active');
-            }
+        // Clic sur Support IT
+        if (dropLink && dropParent) {
+            dropLink.onclick = function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropParent.classList.toggle('active');
+                }
+            };
         }
-    });
+    };
 </script>
-
-
-
     
     
 </body>

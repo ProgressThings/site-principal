@@ -205,5 +205,28 @@
     </script>
     <call-us-selector phonesystem-url="https://1745.3cx.cloud" party="LiveChat302601"></call-us-selector>
 <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
+<script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                // Ouvre/Ferme le menu
+                navMenu.classList.toggle('active');
+                // Transforme le bouton en croix (X)
+                navToggle.classList.toggle('active');
+            });
+
+            // Ferme le menu si on clique sur un lien (utile pour les ancres #)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+    
 </body>
 </html>

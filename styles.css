@@ -1222,3 +1222,53 @@ section {
         display: flex !important;
     }
 }
+@media screen and (max-width: 768px) {
+    /* LOGO : Taille forcée */
+    .nav-logo img {
+        height: 32px !important;
+        width: auto !important;
+        max-width: 150px !important;
+    }
+
+    /* BARRE : On s'assure qu'elle est cliquable */
+    .navbar {
+        height: 65px !important;
+        z-index: 10000 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    /* MENU : Caché par défaut, plein écran quand ouvert */
+    .nav-menu {
+        display: none !important;
+        position: fixed !important;
+        top: 65px !important;
+        left: 0;
+        width: 100% !important;
+        height: calc(100vh - 65px) !important;
+        background: #060911 !important;
+        flex-direction: column !important;
+        padding: 20px !important;
+        z-index: 9999 !important;
+        overflow-y: auto !important;
+    }
+
+    .nav-menu.active { display: flex !important; }
+
+    /* SOUS-MENU SUPPORT IT : Caché par défaut */
+    .nav-dropdown-menu {
+        display: none !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        flex-direction: column !important;
+        margin-top: 10px !important;
+        border-radius: 8px;
+    }
+
+    /* Affiché quand on clique */
+    .nav-dropdown.active .nav-dropdown-menu {
+        display: flex !important;
+    }
+
+    .nav-toggle { cursor: pointer !important; z-index: 11000 !important; }
+}

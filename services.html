@@ -176,6 +176,45 @@
             });
         }
     </script>
-</body>
+ // 3CX initialization
+        window.addEventListener('load', function() {
+            if (typeof CallUsWidget !== 'undefined') {
+                CallUsWidget.init({ id: 'LiveChat5906', company: 'Progress Things', server: '1745.3cx.cloud' });
+            }
+        });
+    </script>
+    <call-us-selector 
+    phonesystem-url="https://1745.3cx.cloud" 
+    party="LiveChat600395"
+    id="wp-live-chat-by-3CX"
+    style="position:fixed; z-index: 999999; right: 20px; bottom: 20px; max-width: 90vw;"
+    animation-style="reflection"
+    minimized-style="bubbleright"
+    lang="fr"
+    greeting-visibility="show"
+    greeting-offline-visibility="show"
+    chat-delay="2000"
+    allow-call="true"
+    authentication="both">
+</call-us-selector>
+
+<script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
+
+<style>
+    /* Correction pour empêcher le chat de déborder */
+    #wp-live-chat-by-3CX-container {
+        z-index: 999999 !important;
+        bottom: 20px !important;
+        right: 20px !important;
+    }
+    
+    /* Si la fenêtre dépasse sur mobile */
+    @media screen and (max-width: 480px) {
+        call-us-selector {
+            right: 10px !important;
+            bottom: 10px !important;
+        }
+    }
+</style>
 </body>
 </html>

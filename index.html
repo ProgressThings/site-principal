@@ -302,31 +302,30 @@
         }
     }
 </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        const dropdown = document.querySelector('.nav-dropdown');
-        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+ <script>
+    // On attend que la page soit prête
+    window.addEventListener('load', function() {
+        const btn = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+        const drop = document.querySelector('.nav-dropdown');
+        const dropBtn = document.querySelector('.nav-dropdown-toggle');
 
-        // Menu principal Hamburger
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                navToggle.classList.toggle('active');
-            });
+        // Clic sur les 3 barres (Menu principal)
+        if (btn && menu) {
+            btn.onclick = function() {
+                menu.classList.toggle('active');
+                btn.classList.toggle('active');
+            };
         }
 
-        // Sous-menu Support IT (Déroule et Enroule au clic)
-        if (dropdownToggle && dropdown) {
-            dropdownToggle.addEventListener('click', function(e) {
+        // Clic sur Support IT (Sous-menu)
+        if (dropBtn && drop) {
+            dropBtn.onclick = function(e) {
                 if (window.innerWidth <= 768) {
-                    e.preventDefault(); 
-                    e.stopPropagation();
-                    // Ajoute ou enlève la classe 'active' à chaque clic
-                    dropdown.classList.toggle('active');
+                    e.preventDefault();
+                    drop.classList.toggle('active');
                 }
-            });
+            };
         }
     });
 </script>

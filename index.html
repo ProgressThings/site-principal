@@ -304,24 +304,6 @@
 </style>
 
 
-<script>
-// 1. Fonction pour ouvrir le menu principal
-function togglePrincipal() {
-    var menu = document.getElementById('navMenu');
-    var btn = document.getElementById('navToggle');
-    menu.classList.toggle('active');
-    btn.classList.toggle('active');
-}
-
-// 2. Fonction pour le sous-menu Support IT
-function toggleSupport(e) {
-    if (window.innerWidth <= 768) {
-        e.preventDefault();
-        var dropdown = document.getElementById('supportDropdown');
-        dropdown.classList.toggle('active');
-    }
-}
-</script>
     
 </body>
 </html>

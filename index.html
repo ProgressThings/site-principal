@@ -302,28 +302,33 @@
         }
     }
 </style>
-   <script>
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    const dropdown = document.querySelector('.nav-dropdown');
-    const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const dropdown = document.querySelector('.nav-dropdown');
+        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
 
-    // 1. Ouvrir le menu principal
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
+        // Menu principal Hamburger
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+        }
+
+        // Sous-menu Support IT (Déroule et Enroule au clic)
+        if (dropdownToggle && dropdown) {
+            dropdownToggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault(); 
+                    e.stopPropagation();
+                    // Ajoute ou enlève la classe 'active' à chaque clic
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
     });
-
-    // 2. Ouvrir le sous-menu Support IT
-    if (dropdownToggle) {
-        dropdownToggle.addEventListener('click', (e) => {
-            // Uniquement sur mobile
-            if (window.innerWidth <= 768) {
-                e.preventDefault(); // Empêche de quitter la page
-                dropdown.classList.toggle('active');
-            }
-        });
-    }
 </script>
 </body>
 </html>

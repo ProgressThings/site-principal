@@ -1143,3 +1143,55 @@ section {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* --- RÉPARATION MOBILE GLOBALE (Toutes les pages) --- */
+
+/* 1. Empêcher le site de bouger de gauche à droite sur mobile */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Forcer TOUTES les grilles (grids) à devenir une seule colonne sur mobile */
+@media screen and (max-width: 768px) {
+    /* Cible les grilles de services, partenaires, footer, etc. */
+    .services-grid, 
+    .footer-grid, 
+    .stats-grid, 
+    .grid,
+    [style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    /* Ajuster les marges des sections pour qu'elles ne collent pas aux bords */
+    section {
+        padding: 40px 20px !important;
+    }
+
+    /* Redimensionner les titres trop gros qui font déborder la page */
+    h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Ajuster les images pour qu'elles ne dépassent jamais */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Navigation mobile : s'assurer qu'elle ne casse pas le design */
+    .navbar {
+        padding: 10px 20px !important;
+    }
+}

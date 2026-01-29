@@ -302,5 +302,37 @@
         }
     }
 </style>
+
+    <script>
+    // On attend que la page soit bien chargée
+    window.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+        const dropdown = document.querySelector('.nav-dropdown');
+        const dropdownBtn = document.querySelector('.nav-dropdown-toggle');
+
+        // GESTION DU MENU PRINCIPAL
+        if (toggleBtn && menu) {
+            toggleBtn.onclick = function(e) {
+                e.preventDefault();
+                menu.classList.toggle('active');
+                toggleBtn.classList.toggle('active');
+            };
+        }
+
+        // GESTION DU SOUS-MENU SUPPORT IT (DÉROULÉ)
+        if (dropdownBtn && dropdown) {
+            dropdownBtn.onclick = function(e) {
+                // On n'active le clic que sur mobile
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                }
+            };
+        }
+    });
+</script>
+    
 </body>
 </html>

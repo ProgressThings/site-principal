@@ -1310,3 +1310,25 @@ section {
         display: block !important;
     }
 }
+
+/* FIX BOUTONS ET TEXTES COUPÉS SUR MOBILE */
+@media screen and (max-width: 768px) {
+    /* On s'assure que les conteneurs ne dépassent jamais 100% de la largeur */
+    .nos-produits, .container, .bouton-container {
+        width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* On rend le bouton flexible */
+    .bouton-bleu, .logiciel-btn { 
+        max-width: 100% !important; /* Ne dépasse jamais l'écran */
+        white-space: normal !important; /* Autorise le texte à aller sur 2 lignes si besoin */
+        height: auto !important; /* La hauteur s'adapte au texte */
+        padding: 10px 15px !important;
+        font-size: 14px !important; /* On réduit un peu la police sur mobile */
+        display: inline-block !important;
+        text-align: center !important;
+    }
+}

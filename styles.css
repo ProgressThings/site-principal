@@ -1369,3 +1369,34 @@ section {
         width: 100%;
     }
 }
+/* --- FIX UNIVERSEL BOUTONS COUPÉS --- */
+@media screen and (max-width: 768px) {
+    
+    /* On cible tous tes types de boutons (ceux des photos) */
+    .logiciel-btn, 
+    .btn-blue, 
+    .formula-btn, 
+    .international-btn, 
+    .partenaire-btn,
+    .hero-btn,
+    [class*="btn"], [class*="button"] {
+        width: 90% !important;        /* Prend 90% de la largeur du téléphone */
+        max-width: 320px !important;  /* Sécurité pour ne pas être trop géant */
+        display: block !important;    /* Force le bouton à être seul sur sa ligne */
+        margin: 15px auto !important; /* Centre le bouton horizontalement */
+        
+        /* LA MAGIE EST ICI : */
+        white-space: normal !important; /* Permet au texte de s'écrire sur 2 lignes */
+        height: auto !important;        /* Le bouton grandit en hauteur si le texte double */
+        padding: 15px 10px !important;  /* Espace intérieur confortable */
+        font-size: 14px !important;     /* Taille de texte adaptée mobile */
+        line-height: 1.4 !important;    /* Espace entre les lignes du bouton */
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix pour le texte "Logiciel Propriétaire" pour qu'il ne touche pas les bords */
+    .logiciel-btn {
+        letter-spacing: 0.5px !important; 
+    }
+}

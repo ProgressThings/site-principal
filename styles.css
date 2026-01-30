@@ -1332,3 +1332,43 @@ section {
         text-align: center !important;
     }
 }
+/* --- CORRECTIF UNIVERSEL MOBILE --- */
+@media screen and (max-width: 768px) {
+    /* 1. Logo : Taille fixe partout */
+    .nav-logo img {
+        height: 32px !important;
+        width: auto !important;
+    }
+
+    /* 2. Boutons (Logiciel Propriétaire, Partenaires, etc.) */
+    /* On force les boutons à ne jamais dépasser de l'écran */
+    .bouton-bleu, .logiciel-btn, .btn-partenaire, .hero-btn {
+        max-width: 90% !important; /* Laisse de la marge sur les bords */
+        white-space: normal !important; /* Le texte peut aller sur 2 lignes */
+        display: inline-block !important;
+        height: auto !important;
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Conteneurs : Évite que le contenu soit collé aux bords */
+    section, .container, .services-grid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. Sous-menu Support IT (Le déroulé) */
+    .nav-dropdown-menu {
+        display: none;
+        background: rgba(255, 255, 255, 0.05);
+        list-style: none;
+        padding-left: 20px !important;
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+        display: block !important;
+    }
+}

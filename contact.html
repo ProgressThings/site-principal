@@ -89,7 +89,7 @@
 
             <!-- Form -->
             <div class="animate-on-scroll" style="transition-delay: 0.1s;">
-                <form action="https://formspree.io/f/mgoyzzre" method="POST" id="contactForm" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px; padding: 2.5rem;">
+              <form action="https://formspree.io/f/mgoyzzre" method="POST" id="contactForm" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px; padding: 2.5rem;">
                     <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">Envoyez-nous un message</h3>
                     
                     <div style="margin-bottom: 1.25rem;">
@@ -189,12 +189,19 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
         
         // Form handling
+
+        
         // Form handling pour Formspree
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', function() {
-    const submitBtn = this.querySelector('button[type="submit"]');
-    submitBtn.innerHTML = 'Envoi en cours...';
-    submitBtn.style.opacity = '0.7';
+        const contactForm = document.getElementById('contactForm');
+if (contactForm) { // Sécurité supplémentaire
+    contactForm.addEventListener('submit', function() {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.innerHTML = 'Envoi en cours...';
+            submitBtn.style.opacity = '0.7';
+        }
+    });
+}
     // On laisse l'événement continuer sans e.preventDefault()
 });
         });

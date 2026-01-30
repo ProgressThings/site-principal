@@ -89,7 +89,7 @@
 
             <!-- Form -->
             <div class="animate-on-scroll" style="transition-delay: 0.1s;">
-              <form id="contactForm" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px; padding: 2.5rem;">
+                <form id="contactForm" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px; padding: 2.5rem;">
                     <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">Envoyez-nous un message</h3>
                     
                     <div style="margin-bottom: 1.25rem;">
@@ -99,7 +99,7 @@
                     
                     <div style="margin-bottom: 1.25rem;">
                         <label style="display: block; font-size: 0.9rem; color: var(--gray-400); margin-bottom: 0.5rem;">Email *</label>
-                        <input type="email" name="email" placeholder="vore@email.com" required style="width: 100%; padding: 1rem 1.25rem; background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 12px; color: var(--white); font-family: inherit; font-size: 1rem; transition: 0.3s; outline: none;">
+                        <input type="email" name="email" placeholder="votre@email.com" required style="width: 100%; padding: 1rem 1.25rem; background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 12px; color: var(--white); font-family: inherit; font-size: 1rem; transition: 0.3s; outline: none;">
                     </div>
                     
                     <div style="margin-bottom: 1.25rem;">
@@ -190,12 +190,9 @@
         
         // Form handling
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Merci pour votre message ! Nous vous contacterons très bientôt.');
-        this.reset();
-        
-    // On laisse l'événement continuer sans e.preventDefault()
-});
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous contacterons très bientôt.');
+            this.reset();
         });
         
         // Input focus styles
@@ -206,69 +203,5 @@
         
         window.addEventListener('load', function() { if (typeof CallUsWidget !== 'undefined') CallUsWidget.init({ id: 'LiveChat5906', company: 'Progress Things', server: '1745.3cx.cloud' }); });
     </script>
-    <call-us-selector phonesystem-url="https://1745.3cx.cloud" party="LiveChat302601"></call-us-selector>
-<script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
-<script>
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-                // Ouvre/Ferme le menu
-                navMenu.classList.toggle('active');
-                // Transforme le bouton en croix (X)
-                navToggle.classList.toggle('active');
-            });
-
-            // Ferme le menu si on clique sur un lien (utile pour les ancres #)
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    navToggle.classList.remove('active');
-                });
-            });
-        }
-    </script>
- // 3CX initialization
-        window.addEventListener('load', function() {
-            if (typeof CallUsWidget !== 'undefined') {
-                CallUsWidget.init({ id: 'LiveChat5906', company: 'Progress Things', server: '1745.3cx.cloud' });
-            }
-        });
-    </script>
-    <call-us-selector 
-    phonesystem-url="https://1745.3cx.cloud" 
-    party="LiveChat600395"
-    id="wp-live-chat-by-3CX"
-    style="position:fixed; z-index: 999999; right: 20px; bottom: 20px; max-width: 90vw;"
-    animation-style="reflection"
-    minimized-style="bubbleright"
-    lang="fr"
-    greeting-visibility="show"
-    greeting-offline-visibility="show"
-    chat-delay="2000"
-    allow-call="true"
-    authentication="both">
-</call-us-selector>
-
-<script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
-
-<style>
-    /* Correction pour empêcher le chat de déborder */
-    #wp-live-chat-by-3CX-container {
-        z-index: 999999 !important;
-        bottom: 20px !important;
-        right: 20px !important;
-    }
-    
-    /* Si la fenêtre dépasse sur mobile */
-    @media screen and (max-width: 480px) {
-        call-us-selector {
-            right: 10px !important;
-            bottom: 10px !important;
-        }
-    }
-</style>
-    
 </body>
 </html>

@@ -189,19 +189,11 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
         
         // Form handling
-
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Merci pour votre message ! Nous vous contacterons très bientôt.');
+        this.reset();
         
-        // Form handling pour Formspree
-        const contactForm = document.getElementById('contactForm');
-if (contactForm) { // Sécurité supplémentaire
-    contactForm.addEventListener('submit', function() {
-        const submitBtn = this.querySelector('button[type="submit"]');
-        if (submitBtn) {
-            submitBtn.innerHTML = 'Envoi en cours...';
-            submitBtn.style.opacity = '0.7';
-        }
-    });
-}
     // On laisse l'événement continuer sans e.preventDefault()
 });
         });
